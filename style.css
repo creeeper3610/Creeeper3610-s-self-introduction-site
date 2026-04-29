@@ -1,0 +1,94 @@
+/* 全体 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "MS PMincho";
+  overflow-x: hidden;
+}
+
+/* 戻るボタン */
+.back-button {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: #1e40af;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  z-index: 9999;
+  opacity: 0.85;
+}
+.back-button:hover { opacity: 1; }
+
+/* スライド画像 */
+.slide {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 包み */
+.wrapper {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+/* 14枚目の下のボタン */
+.try-button {
+  display: block;
+  width: 260px;
+  padding: 22px 0;
+  margin: 40px auto;
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: 0.2s;
+}
+.try-button:hover { background: #1e4fcf; }
+
+/* 黒画面（即時） */
+#blackout {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 99998;
+}
+
+/* 白画面（フェード） */
+#whiteout {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.8s linear;
+  z-index: 99999;
+}
+
+/* The End（筆記体） */
+#fineText {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  font-family: "MS PMincho", "Noto Serif JP", serif;
+  color: black;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 100000;
+}

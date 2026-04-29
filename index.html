@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>自己紹介サイト</title>
+  <link rel="icon" type="image/png" href="Tux.png">
+  <link rel="stylesheet" href="style.css">
+<body>
+
+  <a class="back-button"
+     href="file:///media/fuse/drivefs-b278bd52e0c93f425e58538337e71093/root/%E3%82%B5%E3%82%A4%E3%83%88%E3%81%B8GO/index.html">
+    ← 戻る
+  </a>
+
+  <div class="wrapper">
+    <img src="1.png" class="slide">
+    <img src="2.png" class="slide">
+    <img src="3.png" class="slide">
+    <img src="4.png" class="slide">
+    <img src="5.png" class="slide">
+    <img src="6.png" class="slide">
+    <img src="7.png" class="slide">
+    <img src="8.png" class="slide">
+    <img src="9.png" class="slide">
+    <img src="10.png" class="slide">
+    <img src="11.png" class="slide">
+    <img src="12.png" class="slide">
+    <img src="13.png" class="slide">
+    <img src="14.png" class="slide">
+
+    <!-- 14枚目の下のボタン -->
+    <a class="try-button" href="https://creeeper3610.github.io/" target="_blank">
+      実際に試す
+    </a>
+  </div>
+
+  <!-- エラー音 -->
+  <audio id="criticalSound" src="windows-xp-critical-stop_C_major.wav"></audio>
+
+  <!-- 黒→白→The End の演出レイヤー -->
+  <div id="blackout"></div>
+  <div id="whiteout"></div>
+  <div id="fineText">The End</div>
+
+  <script>
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+
+        const audio = document.getElementById("criticalSound");
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+
+        // 黒画面を即座に表示
+        const black = document.getElementById("blackout");
+        black.style.display = "block";
+
+        // ★ 黒画面のまま 2 秒待つ
+        setTimeout(() => {
+          const white = document.getElementById("whiteout");
+          white.style.display = "block";
+          white.style.opacity = "1";
+        }, 2000);
+
+        // ★ 白フェード開始から 1 秒後に「The End」
+        setTimeout(() => {
+          const fine = document.getElementById("fineText");
+          fine.style.display = "block";
+          fine.style.opacity = "1";
+        }, 3000);
+      }
+    });
+  </script>
+
+</body>
+</html>
