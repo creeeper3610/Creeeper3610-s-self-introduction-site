@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>自己紹介サイト</title>
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="Tux.png">
+
+  <!-- 外部CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    #whiteOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #FFFFFF;
+      opacity: 1;
+      transition: opacity 1.5s ease;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 起動音 -->
+<audio id="startSound" src="Windows20XP20Startup.wav"></audio>
+
+<!-- シャットダウン音 -->
+<audio id="shutdownSound" src="Windows20XP20Shutdown.wav"></audio>
+
+<!-- 白いオーバーレイ（サイト全体を#FFFFFFで覆う） -->
+<div id="whiteOverlay"></div>
+
+<script>
+  const startup = document.getElementById("startSound");
+  const shutdown = document.getElementById("shutdownSound");
+  const whiteOverlay = document.getElementById("whiteOverlay");
+
+  let started = false;
+
+  /* スペースキーで白オーバーレイをフェードアウト＋起動音再生（同時） */
+  window.addEventListener("keydown", (event) => {
+    if (event.code === "Space" && !started) {
+      started = true;
+      startup.play();
+      whiteOverlay.style.opacity = "0";
+
+      /* フェード完了後にoverlay自体を非表示にする */
+      setTimeout(() => {
+        whiteOverlay.style.display = "none";
+      }, 1500);
+    }
+  });
+
+  /* ページ遷移：黒フェード → シャットダウン音 → 3秒後に次ページへ */
+  function goNextPage() {
+    whiteOverlay.style.display = "block";
+    whiteOverlay.style.background = "black";
+    whiteOverlay.style.opacity = "0";
+
+    /* 一瞬待ってからopacity:1にしてトランジションを発火 */
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        whiteOverlay.style.opacity = "1";
+      });
+    });
+
+    shutdown.play();
+
+    setTimeout(() => {
+      window.location.href = "file:///media/fuse/drivefs-b278bd52e0c93f425e58538337e71093/root/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B%E3%82%B5%E3%82%A4%E3%83%88/index.html";
+    }, 3000);
+  }
+</script>
+
+  <div class="box">
+    <h1>自己紹介サイト</h1>
+
+    <div class="name">2年2組 君嶋 宙翔</div>
+
+    <a class="button" href="#" onclick="goNextPage(); return false;">
+      Go to next page
+    </a>
+  </div>
+
+</body>
+</html>
