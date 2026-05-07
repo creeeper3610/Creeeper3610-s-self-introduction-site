@@ -5,10 +5,10 @@
   <title>自己紹介サイト</title>
 
   <!-- favicon -->
-  <link rel="icon" type="image/png" href="Tux.png">
+  <link rel="icon" type="image/png" href="../go-to-main-site/Tux.png">
 
   <!-- 外部CSS -->
-  <link rel="stylesheet" href="go-to-main-site/style.css">
+  <link rel="stylesheet" href="../go-to-main-site/style.css">
 
   <style>
     #whiteOverlay {
@@ -27,10 +27,10 @@
 <body>
 
 <!-- 起動音 -->
-<audio id="startSound" src="Windows20XP20Startup.wav"></audio>
+<audio id="startSound" src="../go-to-main-site/Windows20XP20Startup.wav"></audio>
 
 <!-- シャットダウン音 -->
-<audio id="shutdownSound" src="Windows20XP20Shutdown.wav"></audio>
+<audio id="shutdownSound" src="../go-to-main-site/Windows20XP20Shutdown.wav"></audio>
 
 <!-- 白いオーバーレイ（サイト全体を#FFFFFFで覆う） -->
 <div id="whiteOverlay"></div>
@@ -72,14 +72,13 @@
     shutdown.play();
 
     setTimeout(() => {
-      window.location.href = "main-site/index.html";
+      window.location.href = "../main-site/main-site/index.html";
     }, 3000);
   }
 </script>
 
   <div class="box">
     <h1>自己紹介サイト</h1>
-
     <div class="name">2年2組 君嶋 宙翔</div>
 
     <a class="button" href="#" onclick="goNextPage(); return false;">
